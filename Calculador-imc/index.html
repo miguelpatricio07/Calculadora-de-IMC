@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Calculadora de IMC</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<main class="app">
+  <header>
+    <h1>Calculadora de IMC</h1>
+    <p>Ajuste peso e altura e veja o resultado na hora.</p>
+  </header>
+
+  <section class="panel inputs" aria-label="Seus dados">
+    <div class="field">
+      <label for="wN">Peso <small>kg</small></label>
+      <input id="wN" type="number" inputmode="decimal" min="20" max="400" step="0.1" value="70">
+      <input id="wR" type="range" min="30" max="200" step="0.5" value="70" aria-label="Peso em quilos">
+    </div>
+    <div class="field">
+      <label for="hN">Altura <small>cm</small></label>
+      <input id="hN" type="number" inputmode="numeric" min="80" max="250" step="1" value="170">
+      <input id="hR" type="range" min="120" max="220" step="1" value="170" aria-label="Altura em centímetros">
+    </div>
+    <p id="err" role="alert"></p>
+    <button id="save" type="button">Salvar medição</button>
+  </section>
+
+  <section class="panel result" id="result" aria-live="polite">
+    <div class="gauge" aria-hidden="true">
+      <div class="arc"></div>
+      <div class="needle" id="needle"></div>
+    </div>
+    <p class="value" id="val">0,0</p>
+    <p class="cat" id="cat">-</p>
+    <p class="goal" id="goal"></p>
+    <ul class="legend" id="legend"></ul>
+  </section>
+
+  <section class="panel history">
+    <div class="head">
+      <h2>Histórico</h2>
+      <button id="clear" type="button" class="ghost">Limpar</button>
+    </div>
+    <ul id="hist"></ul>
+  </section>
+
+  <p class="note">O IMC é uma triagem, não um diagnóstico: ele não diferencia músculo de gordura e vale para adultos. Para avaliação individual, procure um profissional de saúde.</p>
+</main>
+<script src="script.js"></script>
+</body>
+</html>
